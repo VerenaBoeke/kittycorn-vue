@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Raleway&display=swap');
+$ruler: 16px;
+$color-red: #AE1100;
+$color-bg: #f2e9ee;
+$color-shadow: #c5adba;
+$color-white: #fffafd;
+$color-lightPink: #f5cbe6;
+h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: $ruler*3;
+    color: $color-white;
+}
+
+.result {
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .content {
+        position: relative;
+        .x {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 200%;
+            cursor: pointer;
+        }
+    }
+}
+
+body {
+    background-color: rgba(237, 127, 86, 1);
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+    animation: gradient 6s infinite alternate;
+    transition: background-color 1.5s linear;
+}
+
+.content {
+    background: $color-white;
+    width: 100%;
+    max-width: 400px;
+    padding: 40px;
+    border-radius: $ruler*4;
+}
+
+.container {
+    background: none;
+    display: flex;
+    justify-content: center;
+    button,
+    input {
+        border: 0;
+        outline: 0;
+        font-size: $ruler;
+        border-radius: $ruler*20;
+        padding: $ruler;
+        background-color: $color-bg;
+        text-shadow: 1px 1px 0 $color-white;
+    }
+    input {
+        margin-bottom: $ruler/2;
+        box-shadow: inset 1px 1px 3px $color-shadow, inset -5px -5px 10px $color-white;
+        width: 100%;
+        box-sizing: border-box;
+        transition: all 0.2s ease-in-out;
+        appearance: none;
+        -webkit-appearance: none;
+    }
+    label {
+        font-family: 'Great Vibes', cursive;
+        font-size: $ruler*2;
+        color: rgba(237, 127, 86, 1);
+        animation: labelColor 6s infinite alternate;
+        transition: color 1.5s linear;
+        font-weight: bold;
+        small {
+            display: block;
+            font-family: 'Raleway';
+            color: red;
+            font-size: 50%;
+        }
+    }
+    button {
+        color: #61677C;
+        font-weight: bold;
+        transition: all 0.2s ease-in-out;
+        cursor: pointer;
+        font-weight: 600;
+        text-shadow: none;
+        &:hover {
+            box-shadow: -2px -2px 5px $color-white, 2px 2px 5px $color-shadow;
+        }
+        &:active,
+        &.active {
+            box-shadow: inset 1px 1px 2px $color-shadow, inset -1px -1px 2px $color-white;
+            background-color: rgba(86, 237, 199, 1);
+        }
+        &.cta {
+            margin-top: 20px;
+            width: 200px;
+            text-transform: uppercase;
+            color: #fff;
+            background-color: rgba(237, 127, 86, 1);
+            animation: gradient 6s infinite alternate;
+            transition: background-color 1.5s linear;
+            &[disabled] {
+                opacity: 0.3;
+            }
+        }
+    }
+    .month-wrapper {
+        margin-top: 20px;
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 -10px;
+            display: flex;
+            flex-wrap: wrap;
+            li {
+                width: 33%;
+                padding: 10px;
+                box-sizing: border-box;
+                button {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+@keyframes gradient {
+    0% {
+        background-color: rgba(237, 127, 86, 1);
+    }
+    33% {
+        background-color: rgba(239, 90, 130, 1);
+    }
+    100% {
+        background-color: rgba(146, 90, 239, 1);
+    }
+}
+
+@keyframes labelColor {
+    0% {
+        color: rgba(237, 127, 86, 1);
+    }
+    33% {
+        color: rgba(239, 90, 130, 1);
+    }
+    100% {
+        color: rgba(146, 90, 239, 1);
+    }
+}
+
+@media screen and (min-width: 500px) {
+    h1 {
+        font-size: $ruler*5;
+    }
+    .container .content .month-wrapper ul li {
+        width: 25%;
+    }
+}
